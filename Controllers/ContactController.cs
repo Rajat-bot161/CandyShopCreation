@@ -8,7 +8,7 @@ namespace CandyShop.Controllers
 {
     public class ContactController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Contact()
         {
             return View();
         }
