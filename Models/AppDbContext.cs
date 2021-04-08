@@ -15,6 +15,7 @@ namespace CandyShop.Models
         public DbSet<ShoppingCartItem> shoppingCartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<UserDetails> UserDetail { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -210,6 +211,8 @@ namespace CandyShop.Models
                 IsInStock = true,
                 IsOnSale = false
             });
+
+           
         }
     }
 }
