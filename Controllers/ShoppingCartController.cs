@@ -1,5 +1,6 @@
 ﻿using CandyShop.Models;
 using CandyShop.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace CandyShop.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         private readonly ICandyRepository _candyRepository;

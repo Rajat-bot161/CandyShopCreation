@@ -1,6 +1,8 @@
 using CandyShop.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -36,8 +38,9 @@ namespace CandyShop
             services.AddScoped<ICandyRepository, CandyRepository>();
             services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetCart(sc));
             services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IUserDetailsRepository, UserDetailsRepository>();
-
+            //services.AddScoped<IUserDetailsRepository, UserDetailsRepository>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o => o.LoginPath
+            = new PathString("/Account/Login"));
             services.AddHttpContextAccessor();
             services.AddSession();
             services.AddRazorPages();

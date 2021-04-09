@@ -1,8 +1,8 @@
-﻿@model CandyShop.Models.UserDetails
+﻿@model CandyShop.ViewModels.SignUpViewModel
 
 <div class="container">
 
-    <h3 class="display-4">Login Page</h3>
+    <h3 class="display-4">SignUp Page</h3>
     <form method="post" asp-action="Login" asp-controller="AccountController">
         <div class="form-group">
             <label asp-for="UserName"></label>
@@ -14,11 +14,12 @@
             <input asp-for="Password" class="form-control" />
         </div>
         <div class="form-group">
-            <input type="submit" value="Login" class="btn btn-primary" />
+            <input type="submit" value="SignUp" class="btn btn-primary" />
         </div>
+        <div>@ViewData["message"]</div>
     </form>
 </div>
 
 <div>
-    @Html.ActionLink("Click to SignUp", "SignUp");
+    @Html.ActionLink("Click to Login", "Login");
 </div>
