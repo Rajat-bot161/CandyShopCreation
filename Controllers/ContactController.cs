@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CandyShop.Controllers
 {
-    [Authorize]
+   
     public class ContactController : Controller
     {
         public IActionResult Contact()

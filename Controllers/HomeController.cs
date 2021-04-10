@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CandyShop.Controllers
 {
-    [Authorize]
+   
     public class HomeController : Controller
     {
         private readonly ICandyRepository _candyRepository;
