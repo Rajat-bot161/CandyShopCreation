@@ -36,14 +36,14 @@ namespace CandyShop.Controllers
         public async Task<IActionResult> Login(UserDetails model)
         {
             bool isValid = db.UserDetail.Any(x => x.UserName == model.UserName && x.Password == model.Password);
-            if(isValid)
+            if (isValid)
             {
                 var claims = new List<Claim>
-{
-    new Claim(ClaimTypes.Name, model.UserName),
-    //new Claim("FullName", user.FullName),
-    new Claim(ClaimTypes.Role, "Administrator"),
-};
+             {
+              new Claim(ClaimTypes.Name, model.UserName),
+               //new Claim("FullName", user.FullName),
+              new Claim(ClaimTypes.Role, "Administrator"),
+             };
 
                 var claimsIdentity = new ClaimsIdentity(
                     claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -76,10 +76,14 @@ namespace CandyShop.Controllers
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
-                return RedirectToAction("Index","Home"); 
+                return RedirectToAction("Index", "Home");
             }
-            ModelState.AddModelError("", "Invalid UserName and password");
-            return View();
+            else
+            {
+                ModelState.AddModelError("", "Invalid UserName and password");
+                return View();
+            }
+        
         }
         public IActionResult SignUp()
         {
@@ -101,7 +105,13 @@ namespace CandyShop.Controllers
                 ViewData["message"] = "User created Successfully!";
             }
 
-            return RedirectToAction("login");
+            return RedirectToAction("Login");
+        }
+        
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
 
     }
