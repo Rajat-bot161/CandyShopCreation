@@ -18,7 +18,7 @@ namespace CandyShop.Models
         [Required(ErrorMessage = "Please provide the password")]
 
         [Display(Name = "Password")]
-        [DataType(DataType.Text)]
+        [DataType(DataType.Password)]
         public string   Password { get; set; }
     }
 }

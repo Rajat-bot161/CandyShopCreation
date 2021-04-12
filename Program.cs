@@ -11,6 +11,7 @@ namespace CandyShop
 {
     public class Program
     {
+        //here the execution of program begins
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

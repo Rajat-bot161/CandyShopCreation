@@ -13,10 +13,11 @@ using System.Web.Providers.Entities;
 
 namespace CandyShop.Controllers
 {
+    //CONCEPT OF  INHERITANCE IS IMPLEMENTED
     public class AccountController : Controller
     {
         private AppDbContext db;
-
+        //THIS IS TO FETCH THE DATA FROM THE DATABASE USING DBcontext
         public AccountController(AppDbContext db)
         {
             this.db = db;

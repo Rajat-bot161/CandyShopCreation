@@ -17,4 +17,13 @@
                asp-route-candyId="@Model.Candyid">Add to Cart</a>
         </p>
     </div>
+
+    <div class="RemoveFromCart">
+        <p class="button">
+            <a class="btn btn-primary"
+               asp-controller="ShoppingCart"
+               asp-action="RemoveFromShoppingCart"
+               asp-route-candyId="@Model.Candyid">Remove from Cart</a>
+        </p>
+    </div>
 </div>

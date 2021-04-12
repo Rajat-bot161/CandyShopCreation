@@ -7,17 +7,26 @@
             <h3>
                 <a asp-controller="Candy" asp-action="Details" asp-route-id="@Model.Candyid">
                     @Model.Name
-            </a>
-        </h3>
-        <p>@Model.Description</p>
-    </div>
+                </a>
+            </h3>
+            <p>@Model.Description</p>
+        </div>
         <div class="addToCart">
             <p class="button">
                 <a class="btn btn-primary"
-                    asp-controller="ShoppingCart"
+                   asp-controller="ShoppingCart"
                    asp-action="AddToShoppingCart"
                    asp-route-candyId="@Model.Candyid">Add to Cart</a>
             </p>
         </div>
-</div>
+
+        <div class="RemoveFromCart">
+            <p class="button">
+                <a class="btn btn-primary"
+                   asp-controller="ShoppingCart"
+                   asp-action="RemoveFromShoppingCart"
+                   asp-route-candyId="@Model.Candyid">Remove From Cart</a>
+            </p>
+        </div>
+    </div>
 </div>
